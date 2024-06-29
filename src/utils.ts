@@ -12,11 +12,31 @@ export default class Utils {
 		await this.replaceLineText(line, text)
 	}
 
-	public static removeHeadTag(text) {
-		return text.replace(/^([#]+ )(.*?)$/,  "$2")
+	public static async supplyHeadText(headTag) {
+		await this.supplyTagText(headTag, (text)=>{
+			return text.replace(/^([#]+ )(.*?)$/,  "$2")
+		});
 	}
 
-	public static async supplyHeadText(headTag) {
+	public static async supplyUnorderedList(headTag) {
+		await this.supplyTagText(headTag, (text)=>{
+			return text.replace(/^(- )(.*?)$/,  "$2")
+		});
+	}
+
+	public static async supplyQuote(headTag) {
+		await this.supplyTagText(headTag, (text)=>{
+			return text.replace(/^(> )(.*?)$/,  "$2")
+		});
+	}
+
+	public static async supplyTaskList(headTag) {
+		await this.supplyTagText(headTag, (text)=>{
+			return text.replace(/^(\[.\] )(.*?)$/,  "$2")
+		});
+	}
+
+	public static async supplyTagText(headTag, callback) {
 		const selections = await joplin.commands.execute('editor.execCommand', {name: "listSelections"});
 		if (selections.length > 0) {
 			for (let i = 0; i < selections.length; i++) {
@@ -24,12 +44,12 @@ export default class Utils {
 
 				for (let line = s.head.line; line <= s.anchor.line; line++) {
 					const text = await joplin.commands.execute('editor.execCommand', {name: "getLine", args:[line]});
-					await this.replaceLineText(line, headTag + " " + this.removeHeadTag(text))
+					await this.replaceLineText(line, headTag + " " + callback(text))
 				}
 			}
 		} else {
 			const text = await joplin.commands.execute('editor.execCommand', {name: "getCurrentLine"});
-			await this.replaceCurrentLineText(headTag + " " + this.removeHeadTag(text))
+			await this.replaceCurrentLineText(headTag + " " + callback(text))
 		}
 	}
 }
