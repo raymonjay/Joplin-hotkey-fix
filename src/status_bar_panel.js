@@ -1,4 +1,8 @@
 setInterval(function(){
-    // $("#progress").html("Hello <b>world" + (new Date()).getSeconds() + "</b>!");
-    console.log('try interval code')
+    webviewApi.postMessage('get-folders').then(function(response){
+        $("#progress").html("folder: " + response);
+    });
+    webviewApi.postMessage('get-notes').then(function(response){
+        $("#progress").append(", notes: " + response);
+    });
 }, 2000);
