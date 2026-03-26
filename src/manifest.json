@@ -2,7 +2,7 @@
 	"manifest_version": 1,
 	"id": "joplin-plugin-joplin-hotkey-fix",
 	"app_min_version": "2.8",
-	"version": "1.0.1",
+	"version": "2.0.1",
 	"name": "joplin-hotkey-fix",
 	"description": "hotkey in joplin",
 	"author": "raymonjay",

@@ -4,47 +4,6 @@ Optimized hotkey plugin for Joplin.
 
 > **Note:** This plugin is based on the original work by [artikell](https://github.com/artikell/joplin-hotkey). Special thanks to artikell for their contribution and making the original code available. This fix version builds upon their foundation.
 
-## About This Fix
-
-This is a fixed version of the [joplin-hotkey](https://github.com/artikell/joplin-hotkey) plugin originally created by [artikell](https://github.com/artikell).
-
-### Bug Description
-
-The original plugin had a bug on certain systems where using the `CmdOrCtrl+2` hotkey would throw the following error:
-
-```
-Uncaught (in promise) RangeError: Applying change set to a document with the wrong length
-    at e.apply (/Applications/Joplin.app/Contents/Resources/app.asar:1:1)
-    at Transaction.get newDoc [as newDoc] (/Applications/Joplin.app/Contents/Resources/app.asar:1:1)
-    at EditorState.applyTransaction (/Applications/Joplin.app/Contents/Resources/app.asar:1:1)
-    at Transaction.get state [as state] (/Applications/Joplin.app/Contents/Resources/app.asar:1:1)
-    at Array.<anonymous> (customEditorCompletion.ts:25:36)
-    at extendTransaction (/Applications/Joplin.app/Contents/Resources/app.asar:1:1)
-    at resolveTransaction (/Applications/Joplin.app/Contents/Resources/app.asar:1:1)
-    at EditorState.update (/Applications/Joplin.app/Contents/Resources/app.asar:1:1)
-    at EditorView.dispatch (/Applications/Joplin.app/Contents/Resources/app.asar:1:1)
-    at dispatchChange (/Applications/Joplin.app/Contents/Resources/app.asar:1:1)
-```
-
-### Affected Systems
-
-This bug was observed on the following systems:
-- **Windows 11** - Issue confirmed
-- **macBook Pro M5 Pro (macOS 26.3.1)** - Issue confirmed
-- **macBook Pro 2014 (macOS 11.7.11)** - No issue (works correctly)
-
-### The Fix
-
-This version resolves the RangeError by ensuring proper document state handling when applying editor changes. The fix maintains compatibility across different system configurations while preserving all original functionality.
-
-### Credits
-
-- **Original Author:** [artikell](https://github.com/artikell)
-- **Original Repository:** https://github.com/artikell/joplin-hotkey
-- **Original Issue Reference:** https://github.com/laurent22/joplin/issues/7943
-
-Thank you to artikell for creating the original plugin and making it available for the community.
-
 ## How to?
 
 You can achieve the corresponding effect by using the shortcut keys below.
