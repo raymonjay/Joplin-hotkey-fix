@@ -5,9 +5,9 @@
 	"version": "1.0.1",
 	"name": "joplin-hotkey-fix",
 	"description": "hotkey in joplin",
-	"author": "artikell",
-	"homepage_url": "https://github.com/artikell/joplin-hotkey",
-	"repository_url": "https://github.com/artikell/joplin-hotkey",
+	"author": "raymonjay",
+	"homepage_url": "https://github.com/raymonjay/joplin-hotkey-fix",
+	"repository_url": "https://github.com/raymonjay/joplin-hotkey-fix",
 	"keywords": [],
 	"categories": []
 }

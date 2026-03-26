@@ -1,6 +1,8 @@
-# Joplin-hotkey
+# Joplin-hotkey-fix
 
 Optimized hotkey plugin for Joplin.
+
+> **Note:** This plugin is based on the original work by [artikell](https://github.com/artikell/joplin-hotkey). Special thanks to artikell for their contribution and making the original code available. This fix version builds upon their foundation.
 
 ## How to?
 
@@ -18,7 +20,7 @@ You can achieve the corresponding effect by using the shortcut keys below.
 
 ### For User
 
-You can propose an [issue](https://github.com/artikell/joplin-hotkey/issues/new) to describe the hotkeys you want to have. For example:
+You can propose an [issue](https://github.com/raymonjay/joplin-hotkey-fix/issues/new) to describe the hotkeys you want to have. For example:
 
 ```
 Title：Heading
