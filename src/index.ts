@@ -1,3 +1,20 @@
+/**
+ * Joplin Hotkey Plugin - Fixed Version
+ * 
+ * Original Author: artikell
+ * Original Repository: https://github.com/artikell/joplin-hotkey
+ * 
+ * This is a fixed version of the joplin-hotkey plugin.
+ * The original plugin had a bug on some systems (Windows 11, macOS with Apple Silicon)
+ * where using CmdOrCtrl+2 would throw a RangeError:
+ * "Applying change set to a document with the wrong length"
+ * 
+ * This fix resolves the issue by ensuring proper document state handling
+ * when applying editor changes.
+ * 
+ * Special thanks to artikell for the original implementation.
+ */
+
 import joplin from 'api';
 import Utils from './utils';
 import { MenuItemLocation, ContentScriptType } from 'api/types';

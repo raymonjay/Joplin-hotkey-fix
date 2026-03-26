@@ -1,3 +1,16 @@
+/**
+ * Joplin Hotkey Plugin - Fixed Version
+ * 
+ * Original Author: artikell
+ * Original Repository: https://github.com/artikell/joplin-hotkey
+ * 
+ * Utility functions for editor operations.
+ * This file is part of the fixed version that resolves the RangeError bug
+ * that occurred on some systems when using certain hotkey combinations.
+ * 
+ * Special thanks to artikell for the original implementation.
+ */
+
 import joplin from 'api';
 
 export default class Utils {
