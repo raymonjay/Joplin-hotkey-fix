@@ -152,6 +152,9 @@ export default class Utils {
 		// 表格行包含 | 字符
 		if (!line.includes('|')) return false;
 		
+		// 如果是标题行（以 # 开头），不认为是表格
+		if (line.trim().startsWith('#')) return false;
+		
 		// 分割并检查是否有多个列
 		const cells = line.split('|').filter(cell => cell.trim() !== '');
 		return cells.length >= 2;
@@ -265,9 +268,13 @@ export default class Utils {
 			const indent = match[1];
 			const marker = match[2];
 			const content = match[3].trim();
-			// 统一缩进为 2 个空格，标记后一个空格
-			const indentLevel = Math.floor(indent.length / 4);
+			
+			// 保留原有的缩进层级，只确保标记后有一个空格
+			// 将原有的缩进统一为 2 空格制表符，但保持层级关系
+			const originalIndentLength = indent.length;
+			const indentLevel = Math.floor(originalIndentLength / 2);
 			const newIndent = '  '.repeat(indentLevel);
+			
 			return `${newIndent}${marker} ${content}`;
 		}
 		
